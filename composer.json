@@ -1,0 +1,17 @@
+{
+    "name": "fantomx1/template-locator",
+    "description": "template locator",
+    "type": "library",
+    "authors": [
+        {
+            "name": "frantisek.hallo",
+            "email": "fantomx1@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "fantomx1\\": "."
+        }
+    }
+}
