@@ -21,4 +21,5 @@ Following the standard frameworks way of copying the controller's name as subfol
         #####################################
         
         $tl = new TemplateLocator();
-        $path = $tl->setRelative()->setViewsDir('../../twig/views')->seek($this);
+        $path = $tl->getRelative()->setViewsDir('../../twig/views')->seek($this);
+        $path = $path .'/'.$template.'.php';

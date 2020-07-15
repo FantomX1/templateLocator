@@ -23,15 +23,17 @@ class ViewLocator
 
 
     /**
+     * whether to return relative paths for libraries which need it that way, eg symfony Twig
      * @return $this
      */
-    public function setRelative()
+    public function getRelative()
     {
         $this->flagRelative = true;
         return $this;
     }
 
     /**
+     * to override default relative vies location from ../views to eg ../../twig/templates etc.
      * @param $viewsDir
      * @return $this
      */
@@ -43,6 +45,18 @@ class ViewLocator
 
 
     /**
+     *
+     * returns the views path without the trailing slash
+     *  Usage:
+     *  $tl = new TemplateLocator();
+     *  $path = $tl->seek($this);
+     *  $path = $path .'/'.$template.'.php';
+     *  #####################################
+     *
+     *  $tl = new TemplateLocator();
+     *  $path = $tl->getRelative()->setViewsDir('../../twig/views')->seek($this);
+     *  $path = $path .'/'.$template.'.php';
+     *
      * @param $viewsDir
      * @return $this
      */
@@ -58,6 +72,8 @@ class ViewLocator
             $dirController = dirname($fn).'/'.$this->viewsDirectory;
         }
 
+        // separate words snake based to remove the last part for a template from word, being it to remove
+        // a word "Controller" or a "Widget"
         $arr = preg_split('/(?=[A-Z])/',basename($fn));
 
 //        $basename = str_replace("Widget.php", "", basename($fn));
@@ -69,7 +85,9 @@ class ViewLocator
         // duplicated forwawrd slash won't spoil it
 
         //$path = $relativePath =  '/'. $basename.'/';
-        $relativePath = '/'. $basename.'/';
+        $relativePath = '/'. $basename;
+        // let the owner add the trailing slash
+        //.'/';
         $path = $dirController.'/'. $relativePath;
 
         if ($this->flagRelative) {
