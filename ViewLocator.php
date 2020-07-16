@@ -58,15 +58,12 @@ class ViewLocator
             $dirController = dirname($fn).'/'.$this->viewsDirectory;
         }
 
-        $arr = preg_split('/(?=[A-Z])/',basename($fn));
+        $arr = preg_split('/(?=[A-Z])/', basename($fn));
 
 //        $basename = str_replace("Widget.php", "", basename($fn));
 
         unset($arr[count($arr)-1]);
         $basename = implode("", $arr);
-
-
-        // duplicated forwawrd slash won't spoil it
 
         //$path = $relativePath =  '/'. $basename.'/';
         $relativePath = '/'. $basename.'/';
