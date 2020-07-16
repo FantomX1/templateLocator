@@ -74,19 +74,15 @@ class ViewLocator
 
         // separate words snake based to remove the last part for a template from word, being it to remove
         // a word "Controller" or a "Widget"
-        $arr = preg_split('/(?=[A-Z])/',basename($fn));
+        $arr = preg_split('/(?=[A-Z])/', basename($fn));
 
 //        $basename = str_replace("Widget.php", "", basename($fn));
 
         unset($arr[count($arr)-1]);
         $basename = implode("", $arr);
 
-
         //$path = $relativePath =  '/'. $basename.'/';
-        //$relativePath = '/'. $basename;
-        $relativePath =  $basename.'/';
-        // let the owner add the trailing slash
-        //.'/';
+        $relativePath = '/'. $basename.'/';
         $path = $dirController.'/'. $relativePath;
 
         if ($this->flagRelative) {
