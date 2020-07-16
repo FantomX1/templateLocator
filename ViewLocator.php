@@ -82,10 +82,9 @@ class ViewLocator
         $basename = implode("", $arr);
 
 
-        // duplicated forwawrd slash won't spoil it
-
         //$path = $relativePath =  '/'. $basename.'/';
-        $relativePath = '/'. $basename;
+        //$relativePath = '/'. $basename;
+        $relativePath =  $basename.'/';
         // let the owner add the trailing slash
         //.'/';
         $path = $dirController.'/'. $relativePath;
