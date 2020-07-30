@@ -23,3 +23,5 @@ Following the standard frameworks way of reflecting the controller's name as sub
         $tl = new TemplateLocator();
         $path = $tl->getRelative()->setViewsDir('../../twig/views')->seek($this);
         $path = $path .'/'.$template.'.php';
+
+$this - passing the $this param to the $seek method, is a controller in which is this library used in, to reflect the templates path relatively to it. (TODO: better to add it to some fluent interface method chaining)
