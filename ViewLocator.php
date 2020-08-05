@@ -72,6 +72,8 @@ class ViewLocator
             $dirController = dirname($fn).'/'.$this->viewsDirectory;
         }
 
+//        var_dump($dirController);
+
         // separate words snake based to remove the last part for a template from word, being it to remove
         // a word "Controller" or a "Widget"
         $arr = preg_split('/(?=[A-Z])/', basename($fn));
@@ -82,7 +84,8 @@ class ViewLocator
         $basename = implode("", $arr);
 
         //$path = $relativePath =  '/'. $basename.'/';
-        $relativePath = '/'. $basename.'/';
+        //$relativePath = '/'. $basename.'/';
+        $relativePath =  $basename;
         $path = $dirController.'/'. $relativePath;
 
         if ($this->flagRelative) {
