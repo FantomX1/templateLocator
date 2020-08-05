@@ -38,5 +38,32 @@ $this - passing the $this param to the $seek method, is a controller in which is
         extract($vars);
         include $path.''.$template.'.php';
     }
+
+# Using fantomx1\ViewLocatorRenderTrait  for handling rendering overhead in libraries from the shelf  eg. in real wold context..
+
+```    
+<?php
+
+
+namespace fantomx1\toolmasterforeman\examples\ComposerAssetsInstallerTool;
+
+use fantomx1\toolmasterforeman\ToolMasterForemanAbstract;
+use fantomx1\ViewLocatorRenderTrait;
+
+class ComposerAssetsInstallerTool extends ToolMasterForemanAbstract
+{
+    use ViewLocatorRenderTrait;
+
+    private $viewsDir = './views/';
+
+
+    public function actionIndex()
+    {
+        $this->render("index", ['test'=>1]);
+    }
+
+}
+```    
+    
         
 
