@@ -45,7 +45,7 @@ class ViewLocator
 
 
     /**
-     *
+     * the default view is normally ../views
      * returns the views path without the trailing slash
      *  Usage:
      *  $tl = new TemplateLocator();

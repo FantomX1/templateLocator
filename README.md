@@ -39,8 +39,9 @@ $this - passing the $this param to the $seek method, is a controller in which is
         include $path.''.$template.'.php';
     }
 
-# Using fantomx1\ViewLocatorRenderTrait  for handling rendering overhead in libraries from the shelf  eg. in real wold context..
+## Using fantomx1\ViewLocatorRenderTrait  for handling rendering overhead in libraries from the shelf  eg. in real wold context..
 
+~~private $viewsDir = './views/';~~
 ```    
 <?php
 
@@ -52,9 +53,22 @@ use fantomx1\ViewLocatorRenderTrait;
 
 class ComposerAssetsInstallerTool extends ToolMasterForemanAbstract
 {
+
     use ViewLocatorRenderTrait;
 
-    private $viewsDir = './views/';
+
+    /**
+     *   the 
+     * protected function getViewsDir()
+     * {
+     * return $this->getDefaultViewsDir();
+     * }
+     * @return string
+     */
+    protected function getViewsDir()
+    {
+        return $this->getDefaultViewsDir("./views");
+    }
 
 
     public function actionIndex()
